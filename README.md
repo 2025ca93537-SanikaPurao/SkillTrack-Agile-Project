@@ -41,7 +41,7 @@ Develop a Minimum Viable Product (MVP) that allows users to:
 
 ---
 
-## Dashboard
+## Dashboard Module
 
 - Welcome User
 - Profile Status
@@ -51,7 +51,7 @@ Develop a Minimum Viable Product (MVP) that allows users to:
 
 ---
 
-## Profile
+## Profile Module
 
 - Full Name
 - Phone
@@ -64,7 +64,7 @@ Develop a Minimum Viable Product (MVP) that allows users to:
 
 ---
 
-## Skills
+## Skills Module
 
 - Add Skills
 - Delete Skills
@@ -72,7 +72,7 @@ Develop a Minimum Viable Product (MVP) that allows users to:
 
 ---
 
-## Projects
+## Projects Module
 
 - Add Project
 - Delete Project
@@ -82,7 +82,7 @@ Develop a Minimum Viable Product (MVP) that allows users to:
 
 ---
 
-# Technology Stack
+# Technology Stack Used
 
 | Layer | Technology |
 |---------|------------|
@@ -170,24 +170,17 @@ python app.py
 
 # Future Enhancements ( Sprint 2)
 
-Resume Builder
-
-AI Skill Recommendation
-
-Certificate Upload
-
-Resume Download
-
-Job Recommendation
-
-Admin Portal
-
+Feedback module
+Ratings module
 Analytics Dashboard
-
+Resume Builder
+AI Skill Recommendation
+Certificate Upload
+Resume Download
+Job Recommendation
+Admin Portal
 Email Notifications
-
 Dark Mode
-
 Mobile Application
 
 ---
