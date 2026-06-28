@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">📂 My Projects</h2>
+
+    <!-- Add Project Form -->
+    <div class="card shadow mb-4">
+        <div class="card-header bg-warning text-dark">
+            <h4>Add New Project</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form method="POST">
+
+                <div class="mb-3">
+                    <label class="form-label">Project Name</label>
+                    <input
+                        type="text"
+                        name="project_name"
+                        class="form-control"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Technology Used</label>
+                    <input
+                        type="text"
+                        name="technology"
+                        class="form-control"
+                        placeholder="Python, Flask, MySQL">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea
+                        name="description"
+                        rows="4"
+                        class="form-control"
+                        placeholder="Describe your project..."></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">GitHub Link</label>
+                    <input
+                        type="url"
+                        name="github_link"
+                        class="form-control"
+                        placeholder="https://github.com/...">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Demo Link</label>
+                    <input
+                        type="url"
+                        name="demo_link"
+                        class="form-control"
+                        placeholder="https://...">
+                </div>
+
+                <button class="btn btn-warning">
+                    Add Project
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Project List -->
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h4>Project List</h4>
+        </div>
+
+        <div class="card-body">
+
+            {% if projects %}
+
+            <table class="table table-bordered table-hover">
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>#</th>
+                        <th>Project</th>
+                        <th>Technology</th>
+                        <th>Description</th>
+                        <th>GitHub</th>
+                        <th>Demo</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for p in projects %}
+
+                    <tr>
+
+                        <td>{{ loop.index }}</td>
+
+                        <td>{{ p.project_name }}</td>
+
+                        <td>{{ p.technology }}</td>
+
+                        <td>{{ p.description }}</td>
+
+                        <td>
+
+                            {% if p.github_link %}
+
+                            <a
+                                href="{{ p.github_link }}"
+                                target="_blank"
+                                class="btn btn-sm btn-success">
+
+                                GitHub
+
+                            </a>
+
+                            {% else %}
+
+                            -
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            {% if p.demo_link %}
+
+                            <a
+                                href="{{ p.demo_link }}"
+                                target="_blank"
+                                class="btn btn-sm btn-info">
+
+                                Demo
+
+                            </a>
+
+                            {% else %}
+
+                            -
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            <a
+                                href="/delete_project/{{ p.id }}"
+                                class="btn btn-sm btn-danger"
+                                onclick="return confirm('Delete this project?')">
+
+                                Delete
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+            {% else %}
+
+            <div class="alert alert-info">
+
+                No projects added yet.
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

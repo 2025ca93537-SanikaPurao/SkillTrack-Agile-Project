@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>My Skills</h2>
+
+<form method="POST">
+
+<div class="input-group mb-4">
+
+<input
+type="text"
+name="skill"
+class="form-control"
+placeholder="Enter Skill"
+required>
+
+<button class="btn btn-primary">
+Add Skill
+</button>
+
+</div>
+
+</form>
+
+<table class="table table-bordered">
+
+<thead>
+
+<tr>
+
+<th>#</th>
+
+<th>Skill</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for s in skills %}
+
+<tr>
+
+<td>{{ loop.index }}</td>
+
+<td>{{ s.skill_name }}</td>
+
+<td>
+
+<a
+href="/delete_skill/{{ s.id }}"
+class="btn btn-danger btn-sm">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% endblock %}

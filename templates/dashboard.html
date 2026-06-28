@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">
+
+Welcome {{ user.username }} 👋
+
+</h2>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h1>👤</h1>
+
+<h5>Profile</h5>
+
+{% if profile %}
+
+<span class="badge bg-success">
+
+Completed
+
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+
+Incomplete
+
+</span>
+
+{% endif %}
+
+<br><br>
+
+<a href="/profile" class="btn btn-primary">
+
+Manage
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h1>💻</h1>
+
+<h5>Skills</h5>
+
+<h2>{{ total_skills }}</h2>
+
+<a href="/skills"
+
+class="btn btn-success">
+
+Manage
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h1>📂</h1>
+
+<h5>Projects</h5>
+
+<h2>{{ total_projects }}</h2>
+
+<a href="/projects"
+
+class="btn btn-warning">
+
+Manage
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<h3 class="mt-4">
+
+Recent Projects
+
+</h3>
+
+{% if recent_projects %}
+
+<table class="table table-striped">
+
+<tr>
+
+<th>#</th>
+
+<th>Project</th>
+
+<th>Technology</th>
+
+</tr>
+
+{% for p in recent_projects %}
+
+<tr>
+
+<td>{{ loop.index }}</td>
+
+<td>{{ p.project_name }}</td>
+
+<td>{{ p.technology }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<div class="alert alert-info">
+
+No projects available.
+
+</div>
+
+{% endif %}
+
+{% endblock %}
